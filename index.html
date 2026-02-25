@@ -76,94 +76,81 @@
         <!-- ══ HOME ══════════════════════════════════════════════════ -->
         <section class="page active" id="page-home">
           <div class="hero card">
-            <div class="badge">martial · präzise · ohne tracking</div>
-            <h1>Finde deinen No-Gi Stilraum</h1>
-            <p class="muted">
-              SGM-V2.2 modelliert deinen Stil als Vektor in 6&nbsp;Achsen (TOP,
-              FORCE, INIT, RISK, ULO, TRANS) und ordnet dich einem
-              <span class="em">Primär-Archetyp</span> zu, gefolgt von einer
-              <span class="em">Ausprägung</span>. Das Ergebnis erscheint als
-              Trading&nbsp;Card.
+            <div class="badge">
+              No-Gi BJJ · Stilprofil in 2–4 Minuten · lokal im Browser
+            </div>
+            <h1>Welcher Grappling-Stil passt wirklich zu deinem Default?</h1>
+            <p class="muted lead">
+              KAMPFSTIL (SGM-V2.3) analysiert deine Entscheidungen in typischen
+              No-Gi-Situationen und erstellt daraus dein persönliches
+              <span class="em">Stilprofil</span>: 1 Primär-Archetyp, optional 1
+              Ausprägung und ein 6D-Vektor (TOP, FORCE, INIT, RISK, ULO, TRANS).
             </p>
             <div class="hero-actions">
-              <button class="btn primary" id="ctaStart">Test starten</button>
-              <button class="btn" id="ctaResume">Fortsetzen</button>
-              <button class="btn ghost" id="ctaReset">Zurücksetzen</button>
+              <button class="btn primary" id="ctaStart">
+                Jetzt Stil-Test starten
+              </button>
+              <button class="btn" id="ctaResume">Test fortsetzen</button>
+              <button class="btn ghost" id="ctaReset">Neu beginnen</button>
             </div>
           </div>
 
           <div class="grid2">
             <div class="card mini">
-              <div class="k">So funktioniert's</div>
+              <div class="k">Was du hier bekommst</div>
               <ul class="list">
-                <li>24 Situationsfragen – wähle deinen Default.</li>
-                <li>
-                  6 Achsenwerte (0–100) per gewichtetem Deltas aggregiert.
-                </li>
-                <li>
-                  Primär-Cluster via Softmax-gewichteter Distanz zu Zentroiden.
-                </li>
-                <li>
-                  Hybrid-Ausprägung via Regelkaskade (RISK/INIT/TRANS/ULO).
-                </li>
-                <li>Konfidenzwert zeigt Trennschärfe des Ergebnisses.</li>
+                <li>24 situative Fragen mit klaren Antwortoptionen.</li>
+                <li>Trading-Card Ergebnis mit Archetyp + Konfidenz.</li>
+                <li>Stärken-/Risiko-Tendenzen über 6 Stilachsen.</li>
+                <li>WIKI mit allen Archetypen und Matchup-Matrix.</li>
               </ul>
             </div>
             <div class="card mini">
-              <div class="k">Hinweis</div>
-              <p class="muted">
-                Stil ist nicht Skill. Das Modell beschreibt Tendenzen – keine
-                garantierten Outcomes.
-              </p>
+              <div class="k">So nutzt du die Seite richtig</div>
+              <ul class="list">
+                <li>Antworte nach deinem echten Default, nicht Idealbild.</li>
+                <li>Nicht zu lange nachdenken: erste Tendenz zählt.</li>
+                <li>Ergebnis = Stilbild, nicht Level oder Talent.</li>
+              </ul>
               <div class="pillrow">
                 <span class="pill">Keine Cookies</span>
-                <span class="pill">LocalStorage optional</span>
-                <span class="pill">Mobile-first</span>
+                <span class="pill">Kein Tracking</span>
+                <span class="pill">Fortschritt lokal speicherbar</span>
               </div>
             </div>
           </div>
 
           <div class="card axes">
             <div class="cardhead">
-              <h2>Der sechsdimensionale Stilraum</h2>
+              <h2>Der Stilraum in 6 Achsen</h2>
               <div class="muted small">
-                x = (TOP, FORCE, INIT, RISK, ULO, TRANS)
+                Dein Profil als Vektor x = (TOP, FORCE, INIT, RISK, ULO, TRANS)
               </div>
             </div>
             <div class="axgrid">
               <div class="ax">
                 <div class="axname">TOP</div>
-                <div class="axdesc">0 = Guard/Bottom · 100 = Top/Wrestling</div>
+                <div class="axdesc">Guard/Bottom ↔ Top/Wrestling</div>
               </div>
               <div class="ax">
                 <div class="axname">FORCE</div>
-                <div class="axdesc">
-                  0 = Mobilität/Winkel · 100 = Flattening/Pin
-                </div>
+                <div class="axdesc">Mobilität/Winkel ↔ Druck/Pin</div>
               </div>
               <div class="ax">
                 <div class="axname">INIT</div>
-                <div class="axdesc">
-                  0 = Reaktiv/Counter · 100 = Sequenzen erzwingen
-                </div>
+                <div class="axdesc">Reaktiv/Counter ↔ Initiative erzwingen</div>
               </div>
               <div class="ax">
                 <div class="axname">RISK</div>
-                <div class="axdesc">
-                  0 = Position first · 100 = Submission first
-                </div>
+                <div class="axdesc">Position-first ↔ Submission-first</div>
               </div>
               <div class="ax">
                 <div class="axname">ULO</div>
-                <div class="axdesc">
-                  0 = Upper body · 100 = Lower body / Knee-Line
-                </div>
+                <div class="axdesc">Upper-Body-Fokus ↔ Leg/Knee-Line-Fokus</div>
               </div>
               <div class="ax">
                 <div class="axname">TRANS</div>
-                <div class="axdesc">
-                  0 = Statisch/Pin · 100 = Scramble/Rotation/Backline
-                </div>
+                <div class="axdesc">Stabil/Pin ↔ Scramble/Rotation</div>
               </div>
             </div>
           </div>
