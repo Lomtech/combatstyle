@@ -49,7 +49,7 @@ const ARCHETYPES = [
     }
   },
   {
-    id: "FHF", tier: "primary", emoji: "🫴", name: "Guillotine-Jäger",
+    id: "FHF", tier: "primary", emoji: "🫴", name: "Nacken-Jäger",
     short: "Snapdown/Sprawl → FHL → Finish oder Back", focus: "Entry-Bestrafung", dom: "INIT",
     centroid: { TOP: 60, FORCE: 55, INIT: 85, RISK: 85, ULO: 40, TRANS: 65 },
     wiki: {
