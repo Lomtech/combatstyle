@@ -60,7 +60,7 @@ const ARCHETYPES = [
     }
   },
   {
-    id: "LIH", tier: "primary", emoji: "🦵", name: "Fußjäger",
+    id: "LIH", tier: "primary", emoji: "🦵", name: "Fuß-Jäger",
     short: "Knee-Line → Inside Saddle → Heel Hook", focus: "Knee-Line", dom: "ULO/RISK",
     centroid: { TOP: 45, FORCE: 30, INIT: 70, RISK: 95, ULO: 100, TRANS: 75 },
     wiki: {
