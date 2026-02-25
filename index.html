@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!doctype html>
 <html lang="de">
   <head>
@@ -7,15 +6,31 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <meta name="theme-color" content="#f3eee7" />
-    <title>KAMPFSTIL · No-Gi BJJ</title>
+    <meta name="theme-color" content="#f5f1ec" />
+    <title>KAMPFSTIL · No-Gi BJJ · SGM-V2.2</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="app">
       <header class="topbar">
         <div class="brand">
-          <div class="sigil" aria-hidden="true">K</div>
+          <div class="sigil" aria-hidden="true">
+            <svg
+              width="18"
+              height="17"
+              viewBox="0 0 28 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="14,2 26,24 2,24"
+                stroke="white"
+                stroke-width="2"
+                stroke-linejoin="round"
+                fill="none"
+              />
+            </svg>
+          </div>
           <div class="brandtext">
             <div class="title">KAMPFSTIL</div>
             <div class="sub">
@@ -23,7 +38,6 @@
             </div>
           </div>
         </div>
-
         <nav class="tabs" role="tablist" aria-label="Navigation">
           <button
             class="tab active"
@@ -59,52 +73,52 @@
       </header>
 
       <main class="main">
-        <!-- HOME -->
+        <!-- ══ HOME ══════════════════════════════════════════════════ -->
         <section class="page active" id="page-home">
           <div class="hero card">
-            <div class="hero-top">
-              <div class="badge">martial · präzise · ohne tracking</div>
-              <h1>Finde deinen No-Gi Stilraum</h1>
-              <p class="muted">
-                SGM-V2.2 modelliert deinen Stil als Vektor in 6 Achsen (TOP,
-                FORCE, INIT, RISK, ULO, TRANS) und ordnet dich zunächst einem
-                von 6 <span class="em">Primär-Archetypen</span> (Raum-Cluster)
-                zu. Danach wird eine
-                <span class="em">Ausprägung</span> (Hybrid/„Ausgefallen“)
-                abgeleitet.
-              </p>
-
-              <div class="hero-actions">
-                <button class="btn primary" id="ctaStart">Test starten</button>
-                <button class="btn" id="ctaResume">Fortsetzen</button>
-                <button class="btn ghost" id="ctaReset">Zurücksetzen</button>
-              </div>
+            <div class="badge">martial · präzise · ohne tracking</div>
+            <h1>Finde deinen No-Gi Stilraum</h1>
+            <p class="muted">
+              SGM-V2.2 modelliert deinen Stil als Vektor in 6&nbsp;Achsen (TOP,
+              FORCE, INIT, RISK, ULO, TRANS) und ordnet dich einem
+              <span class="em">Primär-Archetyp</span> zu, gefolgt von einer
+              <span class="em">Ausprägung</span>. Das Ergebnis erscheint als
+              Trading&nbsp;Card.
+            </p>
+            <div class="hero-actions">
+              <button class="btn primary" id="ctaStart">Test starten</button>
+              <button class="btn" id="ctaResume">Fortsetzen</button>
+              <button class="btn ghost" id="ctaReset">Zurücksetzen</button>
             </div>
+          </div>
 
-            <div class="grid2">
-              <div class="mini card">
-                <div class="k">So funktioniert’s</div>
-                <ul class="list">
-                  <li>24 Situationsfragen – wähle deinen Default.</li>
-                  <li>6 Achsenwerte (0–100) werden aggregiert.</li>
-                  <li>Primär-Cluster über Distanz zu Zentroiden.</li>
-                  <li>
-                    Hybrid-Ausprägung über Regeln
-                    (Risiko/Initiative/Transition).
-                  </li>
-                </ul>
-              </div>
-              <div class="mini card">
-                <div class="k">Hinweis</div>
-                <p class="muted">
-                  Stil ist nicht Skill. Das Modell beschreibt Tendenzen – keine
-                  garantierten Outcomes.
-                </p>
-                <div class="pillrow">
-                  <span class="pill">Keine Cookies</span>
-                  <span class="pill">LocalStorage optional</span>
-                  <span class="pill">Mobile-first</span>
-                </div>
+          <div class="grid2">
+            <div class="card mini">
+              <div class="k">So funktioniert's</div>
+              <ul class="list">
+                <li>24 Situationsfragen – wähle deinen Default.</li>
+                <li>
+                  6 Achsenwerte (0–100) per gewichtetem Deltas aggregiert.
+                </li>
+                <li>
+                  Primär-Cluster via Softmax-gewichteter Distanz zu Zentroiden.
+                </li>
+                <li>
+                  Hybrid-Ausprägung via Regelkaskade (RISK/INIT/TRANS/ULO).
+                </li>
+                <li>Konfidenzwert zeigt Trennschärfe des Ergebnisses.</li>
+              </ul>
+            </div>
+            <div class="card mini">
+              <div class="k">Hinweis</div>
+              <p class="muted">
+                Stil ist nicht Skill. Das Modell beschreibt Tendenzen – keine
+                garantierten Outcomes.
+              </p>
+              <div class="pillrow">
+                <span class="pill">Keine Cookies</span>
+                <span class="pill">LocalStorage optional</span>
+                <span class="pill">Mobile-first</span>
               </div>
             </div>
           </div>
@@ -116,7 +130,6 @@
                 x = (TOP, FORCE, INIT, RISK, ULO, TRANS)
               </div>
             </div>
-
             <div class="axgrid">
               <div class="ax">
                 <div class="axname">TOP</div>
@@ -156,7 +169,7 @@
           </div>
         </section>
 
-        <!-- TEST -->
+        <!-- ══ TEST ════════════════════════════════════════════════════ -->
         <section class="page" id="page-test">
           <div class="card testcard">
             <div class="testhead">
@@ -169,72 +182,73 @@
                 <button class="btn ghost" id="btnSkip">Überspringen</button>
               </div>
             </div>
-
             <div class="progressbar" aria-hidden="true">
               <div class="bar" id="progressBar"></div>
             </div>
-
-            <div class="qwrap" id="qWrap">
-              <!-- injected -->
-            </div>
-
+            <div class="qwrap" id="qWrap"></div>
             <div class="testfoot">
               <button class="btn" id="btnToWiki">WIKI öffnen</button>
               <button class="btn primary" id="btnFinish">Auswerten</button>
             </div>
           </div>
 
-          <div class="card" id="resultsCard" style="display: none">
-            <div class="cardhead">
-              <h2>Ergebnis</h2>
-              <div class="muted small">Primär-Archetyp + Ausprägung</div>
-            </div>
-
-            <div class="resultgrid">
-              <div class="resultmain" id="resultMain"></div>
-              <div class="resultside">
-                <div class="k">Dein Stilvektor</div>
-                <div class="chips" id="axisChips"></div>
-                <div class="divider"></div>
-                <div class="k">Teilen</div>
-                <div class="share">
-                  <button class="btn" id="btnCopy">Text kopieren</button>
-                  <button class="btn ghost" id="btnRetake">
-                    Test neu starten
-                  </button>
-                </div>
-                <p class="muted small" id="copyHint"></p>
+          <!-- RESULT CARD (trading card style) -->
+          <div id="resultsCard" style="display: none">
+            <div class="result-reveal">
+              <div class="result-label-row">
+                <div class="k">Dein Kampfstil-Profil</div>
+                <div class="muted small" id="copyHint"></div>
               </div>
-            </div>
 
-            <div class="divider"></div>
+              <!-- THE TRADING CARD -->
+              <div class="result-tcg-wrap">
+                <div class="result-tcg" id="resultTCG">
+                  <!-- injected -->
+                </div>
+              </div>
 
-            <div class="k">Nächste Schritte</div>
-            <div class="nextrow">
-              <button class="btn" id="btnOpenArchetype">
-                Archetyp im WIKI ansehen
-              </button>
-              <button class="btn" id="btnOpenMatchups">Matchups prüfen</button>
+              <!-- Axes + Actions below card -->
+              <div class="result-bottom">
+                <div class="result-axes-box card subtle">
+                  <div class="k">Stilvektor</div>
+                  <div class="axes-radar" id="axesRadar"></div>
+                  <div class="chips" id="axisChips"></div>
+                </div>
+                <div class="result-actions-box card subtle">
+                  <div class="k">Nächste Schritte</div>
+                  <div class="result-actions-grid">
+                    <button class="btn primary" id="btnOpenArchetype">
+                      Archetyp im WIKI
+                    </button>
+                    <button class="btn" id="btnOpenMatchups">
+                      Matchups prüfen
+                    </button>
+                    <button class="btn" id="btnCopy">Text kopieren</button>
+                    <button class="btn ghost" id="btnRetake">
+                      Neu starten
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <!-- WIKI -->
+        <!-- ══ WIKI ════════════════════════════════════════════════════ -->
         <section class="page" id="page-wiki">
-          <div class="card">
+          <div class="card" id="wikiListCard">
             <div class="cardhead">
               <h2>SGM-WIKI</h2>
               <div class="muted small">
                 6 Primär-Archetypen + 6 Ausprägungen
               </div>
             </div>
-
             <div class="controls">
               <input
                 class="input"
                 id="wikiSearch"
                 type="search"
-                placeholder="Suchen (z. B. Druck, Leg, Back, Neutral) …"
+                placeholder="Suchen …"
               />
               <select class="select" id="wikiFilter">
                 <option value="all">Alle</option>
@@ -242,10 +256,7 @@
                 <option value="variant">Ausprägungen</option>
               </select>
             </div>
-
-            <div class="wikigrid" id="wikiGrid">
-              <!-- injected -->
-            </div>
+            <div class="wikigrid" id="wikiGrid"></div>
           </div>
 
           <div class="card" id="wikiDetail" style="display: none">
@@ -260,31 +271,27 @@
           </div>
         </section>
 
-        <!-- MATCHUPS -->
+        <!-- ══ MATCHUPS ════════════════════════════════════════════════ -->
         <section class="page" id="page-matchups">
           <div class="card">
             <div class="cardhead">
               <h2>Matchup-Matrix</h2>
               <div class="muted small">
-                Heuristische Tendenzen (nicht deterministisch). Stil + Skill +
-                Regelwerk entscheiden reale Kämpfe.
+                Heuristische Tendenzen. Stil + Skill + Regelwerk entscheiden
+                reale Kämpfe.
               </div>
             </div>
-
             <div class="controls">
               <select class="select" id="muA"></select>
               <select class="select" id="muB"></select>
               <button class="btn primary" id="btnCompare">Vergleichen</button>
             </div>
-
             <div class="card subtle" id="muResult">
               <div class="muted">
-                Wähle zwei Archetypen und klicke „Vergleichen“.
+                Wähle zwei Archetypen und klicke „Vergleichen".
               </div>
             </div>
-
             <div class="divider"></div>
-
             <div class="matrixwrap">
               <table
                 class="matrix"
@@ -295,70 +302,48 @@
           </div>
         </section>
 
-        <!-- LEGAL -->
+        <!-- ══ LEGAL ═══════════════════════════════════════════════════ -->
         <section class="page" id="page-legal">
           <div class="card">
             <div class="cardhead">
               <h2>Impressum</h2>
-              <div class="muted small">
-                Platzhalter – bitte mit deinen echten Daten ersetzen.
-              </div>
+              <div class="muted small">Platzhalter</div>
             </div>
             <div class="legal">
               <h3>Anbieter</h3>
               <p>
-                <strong>Vorname Nachname / Firma</strong><br />
-                Straße Hausnr.<br />
-                PLZ Ort<br />
-                Deutschland
+                <strong>Vorname Nachname</strong><br />Straße Hausnr.<br />PLZ
+                Ort, Deutschland
               </p>
-
               <h3>Kontakt</h3>
-              <p>
-                E-Mail: <strong>kontakt@deine-domain.de</strong><br />
-                Telefon: <strong>optional</strong>
-              </p>
-
+              <p>E-Mail: <strong>kontakt@deine-domain.de</strong></p>
               <h3>Haftungshinweis</h3>
               <p class="muted">
                 Inhalte dienen der Information und Stil-Selbsteinschätzung.
-                Keine Garantie für Richtigkeit/Vollständigkeit. Externe Links
-                unterliegen der Verantwortung der jeweiligen Anbieter.
+                Keine Garantie für Richtigkeit. Externe Links unterliegen der
+                Verantwortung der jeweiligen Anbieter.
               </p>
             </div>
           </div>
-
           <div class="card">
             <div class="cardhead">
               <h2>Datenschutz</h2>
-              <div class="muted small">
-                Ohne Tracking, ohne Cookies. Optional LocalStorage für
-                Fortschritt.
-              </div>
+              <div class="muted small">Ohne Tracking, ohne Cookies</div>
             </div>
             <div class="legal">
               <h3>Verarbeitung</h3>
               <p>
-                Diese Seite verarbeitet keine personenbezogenen Daten
-                serverseitig. Der Test läuft lokal im Browser.
+                Keine personenbezogenen Daten serverseitig. Test läuft lokal im
+                Browser.
               </p>
-
-              <h3>LocalStorage (optional)</h3>
+              <h3>LocalStorage</h3>
               <p>
-                Wenn du den Test startest, kann der Fortschritt im LocalStorage
-                gespeichert werden (Gerät-lokal). Du kannst ihn jederzeit über
-                „Zurücksetzen“ löschen.
+                Fortschritt wird lokal gespeichert. Jederzeit über
+                „Zurücksetzen" löschbar.
               </p>
-
               <h3>Keine Cookies</h3>
               <p>Es werden keine Cookies gesetzt.</p>
-
-              <h3>Kontakt</h3>
-              <p>Bei Fragen: <strong>kontakt@deine-domain.de</strong></p>
-
-              <p class="muted small">
-                Hinweis: Das ist eine schlanke Vorlage und keine Rechtsberatung.
-              </p>
+              <p class="muted small">Hinweis: Vorlage, keine Rechtsberatung.</p>
             </div>
           </div>
         </section>
@@ -373,7 +358,6 @@
         </div>
       </footer>
     </div>
-
     <script src="./app.js"></script>
   </body>
 </html>
