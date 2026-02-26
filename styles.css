@@ -823,6 +823,49 @@ h3 {
   border-radius: 999px;
 }
 
+/* Finish-Signatur */
+.rtcg-sigs {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border2);
+}
+.rtcg-sigs-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 8px;
+}
+.rtcg-sig-row {
+  margin-bottom: 7px;
+}
+.rtcg-sig-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.rtcg-sig-desc {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 1px;
+  margin-bottom: 4px;
+}
+.rtcg-sig-bar-wrap {
+  height: 4px;
+  background: rgba(17, 17, 16, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.rtcg-sig-bar {
+  height: 100%;
+  border-radius: 999px;
+  width: 0%;
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 /* Variant sub-card */
 .rtcg-variant {
   margin-top: 8px;
@@ -1205,6 +1248,229 @@ h3 {
   width: 26px;
   text-align: right;
   flex: 0 0 auto;
+}
+
+/* ─── MATCHUP DUEL ───────────────────────────────────────── */
+.mu-select-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.mu-select-row .select {
+  flex: 1;
+  min-width: 140px;
+}
+.mu-compare-btn {
+  flex: 0 0 auto;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  min-width: 52px;
+  padding: 10px 14px;
+}
+.mu-duel {
+  display: grid;
+  grid-template-columns: 1fr 130px 1fr;
+  gap: 14px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+@media (max-width: 600px) {
+  .mu-duel {
+    grid-template-columns: 1fr;
+  }
+  .mu-verdict-col {
+    order: 3;
+  }
+}
+.mu-tcg {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r3);
+  box-shadow:
+    var(--shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.mu-tcg-stripe {
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--iron) 0%,
+    var(--iron2) 60%,
+    var(--brass) 100%
+  );
+}
+.mu-tcg-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px 6px;
+  border-bottom: 1px solid var(--border2);
+}
+.mu-tcg-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text);
+}
+.mu-tcg-id {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted2);
+  background: rgba(17, 17, 16, 0.07);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.mu-tcg-art {
+  position: relative;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  background: var(--stone);
+}
+.mu-tcg-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: contrast(1.05) saturate(0.96);
+}
+.mu-tcg-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(transparent, rgba(17, 17, 16, 0.45));
+}
+.mu-tcg-meta {
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.mu-tcg-chip {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background: rgba(17, 17, 16, 0.62);
+  color: rgba(255, 255, 255, 0.88);
+  border-radius: 3px;
+  padding: 2px 5px;
+  backdrop-filter: blur(4px);
+}
+.mu-tcg-body {
+  padding: 10px 12px 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mu-tcg-short {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.mu-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.mu-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.mu-bar-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted2);
+  width: 38px;
+  flex: 0 0 auto;
+}
+.mu-bar-track {
+  flex: 1;
+  height: 5px;
+  background: rgba(17, 17, 16, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.mu-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--iron), var(--brass));
+  width: 0%;
+  transition: width 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mu-bar-val {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text);
+  width: 22px;
+  text-align: right;
+  flex: 0 0 auto;
+}
+/* Verdict column */
+.mu-verdict-col {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding-top: 60px;
+}
+.mu-verdict {
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: var(--r3);
+  overflow: hidden;
+}
+.mu-verdict-symbol {
+  font-size: 40px;
+  font-weight: 900;
+  text-align: center;
+  padding: 18px 8px 6px;
+}
+.mu-verdict-symbol.cell-ok {
+  color: var(--ok);
+}
+.mu-verdict-symbol.cell-bad {
+  color: var(--bad);
+}
+.mu-verdict-symbol.cell-mid {
+  color: var(--mid);
+}
+.mu-verdict-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted2);
+  text-align: center;
+  padding: 0 6px 8px;
+}
+.mu-verdict-desc {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  padding: 8px 10px 14px;
+  line-height: 1.55;
+  border-top: 1px solid var(--border2);
 }
 
 .matrixwrap {

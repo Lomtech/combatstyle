@@ -49,7 +49,7 @@ const ARCHETYPES = [
     }
   },
   {
-    id: "FHF", tier: "primary", emoji: "🫴", name: "Nacken-Jäger",
+    id: "FHF", tier: "primary", emoji: "🫴", name: "Guillotine-Jäger",
     short: "Snapdown/Sprawl → FHL → Finish oder Back", focus: "Entry-Bestrafung", dom: "INIT",
     centroid: { TOP: 60, FORCE: 55, INIT: 85, RISK: 85, ULO: 40, TRANS: 65 },
     wiki: {
@@ -60,7 +60,7 @@ const ARCHETYPES = [
     }
   },
   {
-    id: "LIH", tier: "primary", emoji: "🦵", name: "Fuß-Jäger",
+    id: "LIH", tier: "primary", emoji: "🦵", name: "Beinjäger",
     short: "Knee-Line → Inside Saddle → Heel Hook", focus: "Knee-Line", dom: "ULO/RISK",
     centroid: { TOP: 45, FORCE: 30, INIT: 70, RISK: 95, ULO: 100, TRANS: 75 },
     wiki: {
@@ -655,13 +655,65 @@ function renderMatchupMatrix() {
   const rows = ARCH_ORDER.map(r => `<tr><th class="rowhead">${archetypeById(r).id} ${archetypeById(r).emoji}</th>${ARCH_ORDER.map(c => { const v = MATCHUPS[r]?.[c] ?? "MID"; return `<td class="${v === "OK" ? "cell-ok" : v === "BAD" ? "cell-bad" : "cell-mid"}">${MU_SYMBOL[v]}</td>`; }).join("")}</tr>`).join("");
   $("#matrixTable").innerHTML = head + rows;
 }
+function buildMuCard(id) {
+  const a = archetypeById(id);
+  if (!a) return '<div class="mu-tcg"><div class="mu-tcg-body"><span class="muted">—</span></div></div>';
+  const art = a.img ?? "./images/archetyp_01.jpg";
+  const bars = AXES.map(k => `
+    <div class="mu-bar-row">
+      <div class="mu-bar-label">${k}</div>
+      <div class="mu-bar-track"><div class="mu-bar-fill" data-w="${a.centroid[k] ?? 0}" style="width:0%"></div></div>
+      <div class="mu-bar-val">${a.centroid[k] ?? '—'}</div>
+    </div>`).join("");
+  return `
+    <div class="mu-tcg">
+      <div class="mu-tcg-stripe"></div>
+      <div class="mu-tcg-head">
+        <div class="mu-tcg-name">${a.emoji} ${a.name}</div>
+        <div class="mu-tcg-id">${a.id}</div>
+      </div>
+      <div class="mu-tcg-art">
+        <img src="${art}" alt="${a.name}" loading="lazy"
+             onerror="this.style.display='none'"/>
+        <div class="mu-tcg-fade"></div>
+        <div class="mu-tcg-meta">
+          <span class="mu-tcg-chip">Fokus: ${a.focus}</span>
+          <span class="mu-tcg-chip">Dom: ${a.dom}</span>
+        </div>
+      </div>
+      <div class="mu-tcg-body">
+        <div class="mu-tcg-short">${a.short}</div>
+        <div class="mu-bars">${bars}</div>
+      </div>
+    </div>`;
+}
+
+const MU_TEXT = {
+  OK: { label: "Stilvorteil", desc: "Mechanische Tendenz für Archetyp A. Kein Sieg-Garant." },
+  MID: { label: "Ausgeglichen", desc: "Kein klarer Stilvorteil. Ausgang offener." },
+  BAD: { label: "Stiltendenz ✗", desc: "Mechanische Tendenz gegen Archetyp A. Skill zählt mehr." },
+};
+
 function compareMatchup() {
-  const a = $("#muA").value, b = $("#muB").value, v = MATCHUPS[a]?.[b] ?? "MID";
+  const idA = $("#muA").value, idB = $("#muB").value;
+  const v = MATCHUPS[idA]?.[idB] ?? "MID";
   const cls = v === "OK" ? "cell-ok" : v === "BAD" ? "cell-bad" : "cell-mid";
-  $("#muResult").innerHTML = `<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-    <div><div class="k">${labelById(a)} <span class="muted">vs</span> ${labelById(b)}</div>
-    <div class="muted small">Heuristik – keine Garantie.</div></div>
-    <div style="font-size:24px;font-weight:700;" class="${cls}">${MU_SYMBOL[v]}</div></div>`;
+  const txt = MU_TEXT[v];
+
+  $("#muCardA").innerHTML = buildMuCard(idA);
+  $("#muCardB").innerHTML = buildMuCard(idB);
+  $("#muVerdict").innerHTML = `
+    <div class="mu-verdict-symbol ${cls}">${MU_SYMBOL[v]}</div>
+    <div class="mu-verdict-label">${txt.label}</div>
+    <div class="mu-verdict-desc">${txt.desc}</div>`;
+
+  // Animate bars with slight stagger
+  requestAnimationFrame(() => {
+    document.querySelectorAll(".mu-bar-fill").forEach((el, i) => {
+      const w = el.dataset.w;
+      setTimeout(() => { el.style.width = w + "%"; }, i * 20);
+    });
+  });
 }
 
 /* ═══ BOOT ════════════════════════════════════════════════════ */
@@ -709,6 +761,7 @@ function boot() {
   $("#btnWikiBack").addEventListener("click", () => { closeWikiDetail(); renderWikiGrid(); });
   $("#btnWikiOpenMatchups").addEventListener("click", () => showPage("matchups"));
   renderMatchupSelects(); renderMatchupMatrix();
+  compareMatchup(); // render initial cards
   $("#btnCompare").addEventListener("click", compareMatchup);
   if (state.lastResult) renderResults(state.lastResult);
   renderQuestion(); renderWikiGrid();

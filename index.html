@@ -1,349 +1,257 @@
 <!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
-    <meta name="theme-color" content="#f5f1ec" />
-    <title>KAMPFSTIL · No-Gi BJJ · SGM-V2.2</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="app">
-      <header class="topbar">
-        <div class="brand">
-          <div class="sigil" aria-hidden="true">
-            <svg
-              width="18"
-              height="17"
-              viewBox="0 0 28 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <polygon
-                points="14,2 26,24 2,24"
-                stroke="white"
-                stroke-width="2"
-                stroke-linejoin="round"
-                fill="none"
-              />
-            </svg>
-          </div>
-          <div class="brandtext">
-            <div class="title">KAMPFSTIL</div>
-            <div class="sub">
-              No-Gi BJJ · SGM-V2.2 · 6 Achsen · 24 Fragen · 12 Archetypen
-            </div>
-          </div>
-        </div>
-        <nav class="tabs" role="tablist" aria-label="Navigation">
-          <button
-            class="tab active"
-            data-page="home"
-            role="tab"
-            aria-selected="true"
-          >
-            Start
-          </button>
-          <button class="tab" data-page="test" role="tab" aria-selected="false">
-            Test
-          </button>
-          <button class="tab" data-page="wiki" role="tab" aria-selected="false">
-            WIKI
-          </button>
-          <button
-            class="tab"
-            data-page="matchups"
-            role="tab"
-            aria-selected="false"
-          >
-            Matchups
-          </button>
-          <button
-            class="tab"
-            data-page="legal"
-            role="tab"
-            aria-selected="false"
-          >
-            Rechtliches
-          </button>
-        </nav>
-      </header>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="theme-color" content="#e8e6e1"/>
+  <meta name="description" content="Finde deinen No-Gi BJJ Kampfstil. 24 Situationsfragen → 6D-Stilvektor → Trading Card Ergebnis. Kostenlos, ohne Tracking."/>
+  <title>KAMPFSTIL · Wer bist du auf der Matte?</title>
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+<div class="app">
 
-      <main class="main">
-        <!-- ══ HOME ══════════════════════════════════════════════════ -->
-        <section class="page active" id="page-home">
-          <div class="hero card">
-            <div class="badge">
-              No-Gi BJJ · Stilprofil in 2–4 Minuten · lokal im Browser
-            </div>
-            <h1>Welcher Grappling-Stil passt wirklich zu deinem Default?</h1>
-            <p class="muted lead">
-              KAMPFSTIL (SGM-V2.3) analysiert deine Entscheidungen in typischen
-              No-Gi-Situationen und erstellt daraus dein persönliches
-              <span class="em">Stilprofil</span>: 1 Primär-Archetyp, optional 1
-              Ausprägung und ein 6D-Vektor (TOP, FORCE, INIT, RISK, ULO, TRANS).
-            </p>
-            <div class="hero-actions">
-              <button class="btn primary" id="ctaStart">
-                Jetzt Stil-Test starten
-              </button>
-              <button class="btn" id="ctaResume">Test fortsetzen</button>
-              <button class="btn ghost" id="ctaReset">Neu beginnen</button>
-            </div>
-          </div>
-
-          <div class="grid2">
-            <div class="card mini">
-              <div class="k">Was du hier bekommst</div>
-              <ul class="list">
-                <li>24 situative Fragen mit klaren Antwortoptionen.</li>
-                <li>Trading-Card Ergebnis mit Archetyp + Konfidenz.</li>
-                <li>Stärken-/Risiko-Tendenzen über 6 Stilachsen.</li>
-                <li>WIKI mit allen Archetypen und Matchup-Matrix.</li>
-              </ul>
-            </div>
-            <div class="card mini">
-              <div class="k">So nutzt du die Seite richtig</div>
-              <ul class="list">
-                <li>Antworte nach deinem echten Default, nicht Idealbild.</li>
-                <li>Nicht zu lange nachdenken: erste Tendenz zählt.</li>
-                <li>Ergebnis = Stilbild, nicht Level oder Talent.</li>
-              </ul>
-              <div class="pillrow">
-                <span class="pill">Keine Cookies</span>
-                <span class="pill">Kein Tracking</span>
-                <span class="pill">Fortschritt lokal speicherbar</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card axes">
-            <div class="cardhead">
-              <h2>Der Stilraum in 6 Achsen</h2>
-              <div class="muted small">
-                Dein Profil als Vektor x = (TOP, FORCE, INIT, RISK, ULO, TRANS)
-              </div>
-            </div>
-            <div class="axgrid">
-              <div class="ax">
-                <div class="axname">TOP</div>
-                <div class="axdesc">Guard/Bottom ↔ Top/Wrestling</div>
-              </div>
-              <div class="ax">
-                <div class="axname">FORCE</div>
-                <div class="axdesc">Mobilität/Winkel ↔ Druck/Pin</div>
-              </div>
-              <div class="ax">
-                <div class="axname">INIT</div>
-                <div class="axdesc">Reaktiv/Counter ↔ Initiative erzwingen</div>
-              </div>
-              <div class="ax">
-                <div class="axname">RISK</div>
-                <div class="axdesc">Position-first ↔ Submission-first</div>
-              </div>
-              <div class="ax">
-                <div class="axname">ULO</div>
-                <div class="axdesc">Upper-Body-Fokus ↔ Leg/Knee-Line-Fokus</div>
-              </div>
-              <div class="ax">
-                <div class="axname">TRANS</div>
-                <div class="axdesc">Stabil/Pin ↔ Scramble/Rotation</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══ TEST ════════════════════════════════════════════════════ -->
-        <section class="page" id="page-test">
-          <div class="card testcard">
-            <div class="testhead">
-              <div>
-                <h2>Test</h2>
-                <div class="muted small" id="progressText">0 / 24</div>
-              </div>
-              <div class="testhead-actions">
-                <button class="btn ghost" id="btnPrev">Zurück</button>
-                <button class="btn ghost" id="btnSkip">Überspringen</button>
-              </div>
-            </div>
-            <div class="progressbar" aria-hidden="true">
-              <div class="bar" id="progressBar"></div>
-            </div>
-            <div class="qwrap" id="qWrap"></div>
-            <div class="testfoot">
-              <button class="btn" id="btnToWiki">WIKI öffnen</button>
-              <button class="btn primary" id="btnFinish">Auswerten</button>
-            </div>
-          </div>
-
-          <!-- RESULT CARD (trading card style) -->
-          <div id="resultsCard" style="display: none">
-            <div class="result-reveal">
-              <div class="result-label-row">
-                <div class="k">Dein Kampfstil-Profil</div>
-                <div class="muted small" id="copyHint"></div>
-              </div>
-
-              <!-- THE TRADING CARD -->
-              <div class="result-tcg-wrap">
-                <div class="result-tcg" id="resultTCG">
-                  <!-- injected -->
-                </div>
-              </div>
-
-              <!-- Axes + Actions below card -->
-              <div class="result-bottom">
-                <div class="result-axes-box card subtle">
-                  <div class="k">Stilvektor</div>
-                  <div class="axes-radar" id="axesRadar"></div>
-                  <div class="chips" id="axisChips"></div>
-                </div>
-                <div class="result-actions-box card subtle">
-                  <div class="k">Nächste Schritte</div>
-                  <div class="result-actions-grid">
-                    <button class="btn primary" id="btnOpenArchetype">
-                      Archetyp im WIKI
-                    </button>
-                    <button class="btn" id="btnOpenMatchups">
-                      Matchups prüfen
-                    </button>
-                    <button class="btn" id="btnCopy">Text kopieren</button>
-                    <button class="btn ghost" id="btnRetake">
-                      Neu starten
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══ WIKI ════════════════════════════════════════════════════ -->
-        <section class="page" id="page-wiki">
-          <div class="card" id="wikiListCard">
-            <div class="cardhead">
-              <h2>SGM-WIKI</h2>
-              <div class="muted small">
-                6 Primär-Archetypen + 6 Ausprägungen
-              </div>
-            </div>
-            <div class="controls">
-              <input
-                class="input"
-                id="wikiSearch"
-                type="search"
-                placeholder="Suchen …"
-              />
-              <select class="select" id="wikiFilter">
-                <option value="all">Alle</option>
-                <option value="primary">Primär-Archetypen</option>
-                <option value="variant">Ausprägungen</option>
-              </select>
-            </div>
-            <div class="wikigrid" id="wikiGrid"></div>
-          </div>
-
-          <div class="card" id="wikiDetail" style="display: none">
-            <div class="detailhead">
-              <div class="detailtitle" id="detailTitle"></div>
-              <div class="detailactions">
-                <button class="btn ghost" id="btnWikiBack">Zurück</button>
-                <button class="btn" id="btnWikiOpenMatchups">Matchups</button>
-              </div>
-            </div>
-            <div id="detailBody"></div>
-          </div>
-        </section>
-
-        <!-- ══ MATCHUPS ════════════════════════════════════════════════ -->
-        <section class="page" id="page-matchups">
-          <div class="card">
-            <div class="cardhead">
-              <h2>Matchup-Matrix</h2>
-              <div class="muted small">
-                Heuristische Tendenzen. Stil + Skill + Regelwerk entscheiden
-                reale Kämpfe.
-              </div>
-            </div>
-            <div class="controls">
-              <select class="select" id="muA"></select>
-              <select class="select" id="muB"></select>
-              <button class="btn primary" id="btnCompare">Vergleichen</button>
-            </div>
-            <div class="card subtle" id="muResult">
-              <div class="muted">
-                Wähle zwei Archetypen und klicke „Vergleichen".
-              </div>
-            </div>
-            <div class="divider"></div>
-            <div class="matrixwrap">
-              <table
-                class="matrix"
-                id="matrixTable"
-                aria-label="Matchup Matrix"
-              ></table>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══ LEGAL ═══════════════════════════════════════════════════ -->
-        <section class="page" id="page-legal">
-          <div class="card">
-            <div class="cardhead">
-              <h2>Impressum</h2>
-              <div class="muted small">Platzhalter</div>
-            </div>
-            <div class="legal">
-              <h3>Anbieter</h3>
-              <p>
-                <strong>Lom-Ali Imadaev</strong><br />Kreuzstraße 1<br />82276
-                Adelshofen, Deutschland
-              </p>
-              <h3>Kontakt</h3>
-              <p>E-Mail: <strong>lomaliimadaev@gmail.com</strong></p>
-              <h3>Haftungshinweis</h3>
-              <p class="muted">
-                Inhalte dienen der Information und Stil-Selbsteinschätzung.
-                Keine Garantie für Richtigkeit. Externe Links unterliegen der
-                Verantwortung der jeweiligen Anbieter.
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="cardhead">
-              <h2>Datenschutz</h2>
-              <div class="muted small">Ohne Tracking, ohne Cookies</div>
-            </div>
-            <div class="legal">
-              <h3>Verarbeitung</h3>
-              <p>
-                Keine personenbezogenen Daten serverseitig. Test läuft lokal im
-                Browser.
-              </p>
-              <h3>LocalStorage</h3>
-              <p>
-                Fortschritt wird lokal gespeichert. Jederzeit über
-                „Zurücksetzen" löschbar.
-              </p>
-              <h3>Keine Cookies</h3>
-              <p>Es werden keine Cookies gesetzt.</p>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer class="footer">
-        <div class="muted small">KAMPFSTIL · No-Gi BJJ · SGM-V2.2</div>
-        <div class="footlinks">
-          <a href="#" data-page="legal">Impressum</a>
-          <span class="dot">·</span>
-          <a href="#" data-page="legal">Datenschutz</a>
-        </div>
-      </footer>
+  <!-- ══ TOPBAR ══════════════════════════════════════════════ -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="sigil" aria-hidden="true">
+        <svg width="18" height="17" viewBox="0 0 28 26" fill="none">
+          <polygon points="14,2 26,24 2,24" stroke="white" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="brandtext">
+        <div class="title">KAMPFSTIL</div>
+        <div class="sub">No-Gi BJJ · Stil-Analyse</div>
+      </div>
     </div>
-    <script src="./app.js"></script>
-  </body>
+    <nav class="tabs" role="tablist" aria-label="Navigation">
+      <button class="tab active" data-page="home"     role="tab" aria-selected="true">Start</button>
+      <button class="tab"        data-page="test"     role="tab" aria-selected="false">Test</button>
+      <button class="tab"        data-page="wiki"     role="tab" aria-selected="false">Archetypen</button>
+      <button class="tab"        data-page="matchups" role="tab" aria-selected="false">Matchups</button>
+      <button class="tab"        data-page="legal"    role="tab" aria-selected="false">Info</button>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- ══ HOME ═════════════════════════════════════════════════ -->
+    <section class="page active" id="page-home">
+      <div class="hero card">
+        <div class="badge">No-Gi BJJ · Stilprofil in 2–4 Minuten · lokal im Browser</div>
+        <h1>Welcher Grappling-Stil passt wirklich zu deinem Default?</h1>
+        <p class="muted lead">
+          KAMPFSTIL (SGM-V2.3) analysiert deine Entscheidungen in typischen No-Gi-Situationen
+          und erstellt daraus dein persönliches <span class="em">Stilprofil</span>:
+          1 Primär-Archetyp, optional 1 Ausprägung, Finish-Signaturen und ein 6D-Vektor
+          (TOP, FORCE, INIT, RISK, ULO, TRANS).
+        </p>
+        <div class="hero-actions">
+          <button class="btn primary" id="ctaStart">Jetzt Stil-Test starten</button>
+          <button class="btn" id="ctaResume">Test fortsetzen</button>
+          <button class="btn ghost" id="ctaReset">Neu beginnen</button>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card mini">
+          <div class="k">Was du hier bekommst</div>
+          <ul class="list">
+            <li>24 situative Fragen mit klaren Antwortoptionen.</li>
+            <li>Trading-Card Ergebnis mit Archetyp + Konfidenz.</li>
+            <li>Stärken-/Risiko-Tendenzen über 6 Stilachsen.</li>
+            <li>WIKI mit allen Archetypen und Matchup-Matrix.</li>
+          </ul>
+        </div>
+        <div class="card mini">
+          <div class="k">So nutzt du die Seite richtig</div>
+          <ul class="list">
+            <li>Antworte nach deinem echten Default, nicht Idealbild.</li>
+            <li>Nicht zu lange nachdenken: erste Tendenz zählt.</li>
+            <li>Ergebnis = Stilbild, nicht Level oder Talent.</li>
+          </ul>
+          <div class="pillrow">
+            <span class="pill">Keine Cookies</span>
+            <span class="pill">Kein Tracking</span>
+            <span class="pill">Fortschritt lokal speicherbar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card axes">
+        <div class="cardhead">
+          <h2>Der Stilraum in 6 Achsen</h2>
+          <div class="muted small">Dein Profil als Vektor x = (TOP, FORCE, INIT, RISK, ULO, TRANS)</div>
+        </div>
+        <div class="axgrid">
+          <div class="ax"><div class="axname">TOP</div><div class="axdesc">Guard/Bottom ↔ Top/Wrestling</div></div>
+          <div class="ax"><div class="axname">FORCE</div><div class="axdesc">Mobilität/Winkel ↔ Druck/Pin</div></div>
+          <div class="ax"><div class="axname">INIT</div><div class="axdesc">Reaktiv/Counter ↔ Initiative erzwingen</div></div>
+          <div class="ax"><div class="axname">RISK</div><div class="axdesc">Position-first ↔ Submission-first</div></div>
+          <div class="ax"><div class="axname">ULO</div><div class="axdesc">Upper-Body-Fokus ↔ Leg/Knee-Line-Fokus</div></div>
+          <div class="ax"><div class="axname">TRANS</div><div class="axdesc">Stabil/Pin ↔ Scramble/Rotation</div></div>
+        </div>
+      </div>
+    </section><!-- /home -->
+
+    <!-- ══ TEST ══════════════════════════════════════════════════ -->
+    <section class="page" id="page-test">
+      <div class="card testcard">
+        <div class="testhead">
+          <div>
+            <h2>Stilvektorgraph</h2>
+            <div class="muted small" id="progressText">0 / 24</div>
+          </div>
+          <div class="testhead-actions">
+            <button class="btn ghost" id="btnPrev">Zurück</button>
+            <button class="btn ghost" id="btnSkip">Überspringen</button>
+          </div>
+        </div>
+        <div class="progressbar" aria-hidden="true">
+          <div class="bar" id="progressBar"></div>
+        </div>
+        <div class="qwrap" id="qWrap"></div>
+        <div class="testfoot">
+          <button class="btn"         id="btnToWiki">Archetypen</button>
+          <button class="btn primary" id="btnFinish">Auswerten →</button>
+        </div>
+      </div>
+
+      <!-- RESULT -->
+      <div id="resultsCard" style="display:none">
+        <div class="result-reveal">
+          <div class="result-label-row">
+            <div class="k">Dein Kampfstil-Profil</div>
+            <div class="muted small" id="copyHint"></div>
+          </div>
+          <div class="result-tcg-wrap">
+            <div class="result-tcg" id="resultTCG"></div>
+          </div>
+          <div class="result-bottom">
+            <div class="result-axes-box card subtle">
+              <div class="k">Stilvektor x</div>
+              <div class="axes-radar" id="axesRadar"></div>
+              <div class="chips" id="axisChips"></div>
+            </div>
+            <div class="result-actions-box card subtle">
+              <div class="k">Nächste Schritte</div>
+              <div class="result-actions-grid">
+                <button class="btn primary" id="btnOpenArchetype">Archetyp im Wiki</button>
+                <button class="btn"         id="btnOpenMatchups">Matchups</button>
+                <button class="btn"         id="btnCopy">Profil kopieren</button>
+                <button class="btn ghost"   id="btnRetake">Neu starten</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ WIKI ═══════════════════════════════════════════════════ -->
+    <section class="page" id="page-wiki">
+      <div class="card" id="wikiListCard">
+        <div class="cardhead">
+          <h2>Archetypen-Wiki</h2>
+          <div class="muted small">6 Primär-Archetypen · 6 Ausprägungen · klick für Details</div>
+        </div>
+        <div class="controls">
+          <input  class="input"  id="wikiSearch" type="search" placeholder="Archetyp suchen …"/>
+          <select class="select" id="wikiFilter">
+            <option value="all">Alle anzeigen</option>
+            <option value="primary">Nur Primär-Archetypen</option>
+            <option value="variant">Nur Ausprägungen</option>
+          </select>
+        </div>
+        <div class="wikigrid" id="wikiGrid"></div>
+      </div>
+
+      <div class="card" id="wikiDetail" style="display:none">
+        <div class="detailhead">
+          <div class="detailtitle" id="detailTitle"></div>
+          <div class="detailactions">
+            <button class="btn ghost" id="btnWikiBack">← Zurück</button>
+            <button class="btn"       id="btnWikiOpenMatchups">Matchups</button>
+          </div>
+        </div>
+        <div id="detailBody"></div>
+      </div>
+    </section>
+
+    <!-- ══ MATCHUPS ═══════════════════════════════════════════════ -->
+    <section class="page" id="page-matchups">
+      <div class="card">
+        <div class="cardhead">
+          <h2>Matchup-Vergleich</h2>
+          <div class="muted small">Skill schlägt Stil — aber Stil zählt.</div>
+        </div>
+
+        <!-- Selects + Button -->
+        <div class="mu-select-row">
+          <select class="select" id="muA"></select>
+          <button class="btn primary mu-compare-btn" id="btnCompare">VS</button>
+          <select class="select" id="muB"></select>
+        </div>
+
+        <!-- Trading Card Duel -->
+        <div class="mu-duel" id="muDuel">
+          <div class="mu-card-slot" id="muCardA"></div>
+          <div class="mu-verdict-col">
+            <div class="mu-verdict" id="muVerdict">
+              <div class="muted small" style="text-align:center;padding:12px 0">Archetypen wählen &amp;<br>Vergleichen drücken</div>
+            </div>
+          </div>
+          <div class="mu-card-slot" id="muCardB"></div>
+        </div>
+
+        <div class="divider"></div>
+        <div class="cardhead" style="margin-top:8px">
+          <h3>Vollständige Matrix</h3>
+          <div class="muted small">✓ Stilvorteile · ~ Ausgeglichen · ✗ Stiltendenz gegen dich</div>
+        </div>
+        <div class="matrixwrap">
+          <table class="matrix" id="matrixTable" aria-label="Matchup Matrix"></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ LEGAL ══════════════════════════════════════════════════ -->
+    <section class="page" id="page-legal">
+      <div class="card">
+        <div class="cardhead"><h2>Impressum</h2></div>
+        <div class="legal">
+          <h3>Anbieter</h3>
+          <p><strong>Vorname Nachname</strong><br/>Straße Hausnr.<br/>PLZ Ort, Deutschland</p>
+          <h3>Kontakt</h3>
+          <p>E-Mail: <strong>kontakt@deine-domain.de</strong></p>
+          <h3>Haftungshinweis</h3>
+          <p class="muted">Inhalte dienen der Information und Stil-Selbsteinschätzung. Keine Garantie für Richtigkeit.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cardhead"><h2>Datenschutz</h2><div class="muted small">Kein Server. Kein Tracking.</div></div>
+        <div class="legal">
+          <h3>Verarbeitung</h3>
+          <p>Keine personenbezogenen Daten werden serverseitig verarbeitet. Der Test läuft vollständig im Browser.</p>
+          <h3>LocalStorage</h3>
+          <p>Fortschritt wird lokal gespeichert und ist über „Zurücksetzen" jederzeit löschbar.</p>
+          <h3>Keine Cookies</h3>
+          <p>Es werden keine Cookies gesetzt.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="muted small">KAMPFSTIL · No-Gi BJJ Stil-Diagnostik · SGM-V2.3</div>
+    <div class="footlinks">
+      <a href="#" data-page="legal">Impressum</a>
+      <span class="dot">·</span>
+      <a href="#" data-page="legal">Datenschutz</a>
+    </div>
+  </footer>
+
+</div>
+<script src="./app.js"></script>
+</body>
 </html>
