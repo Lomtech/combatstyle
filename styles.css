@@ -1330,7 +1330,7 @@ h3 {
 }
 .mu-tcg-art {
   position: relative;
-  aspect-ratio: 3/2;
+  aspect-ratio: 4/5;
   overflow: hidden;
   background: var(--stone);
 }
