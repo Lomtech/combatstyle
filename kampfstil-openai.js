@@ -210,6 +210,13 @@ Coach-Kommentar (4–5 Sätze): echte Stärke, blinder Fleck, 1 konkreter Traini
         if (document.getElementById('kaiRoot')) return;
         const root = document.createElement('div');
         root.id = 'kaiRoot';
+
+        // Backdrop für Mobile
+        const backdrop = document.createElement('div');
+        backdrop.id = 'kaiBackdrop';
+        backdrop.addEventListener('click', () => setPanelOpen(false));
+        document.body.appendChild(backdrop);
+
         root.innerHTML = `
       <button id="kaiToggle" aria-label="KI-Coach">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -281,6 +288,7 @@ Coach-Kommentar (4–5 Sätze): echte Stärke, blinder Fleck, 1 konkreter Traini
         _panelOpen = open;
         document.getElementById('kaiPanel').classList.toggle('open', open);
         document.getElementById('kaiToggle').classList.toggle('active', open);
+        document.getElementById('kaiBackdrop')?.classList.toggle('visible', open);
         if (open) { _unread = 0; updateBadge(); }
     }
 
@@ -510,9 +518,70 @@ Coach-Kommentar (4–5 Sätze): echte Stärke, blinder Fleck, 1 konkreter Traini
       }
       #kaiSendBtn:hover { background: #d4b860; }
 
-      @media (max-width: 480px) {
-        #kaiPanel { width: calc(100vw - 28px); max-height: 60vh; }
-        #kaiRoot  { right: 10px; bottom: 14px; }
+      /* ── Mobile: Bottom Sheet ── */
+      @media (max-width: 600px) {
+        #kaiRoot {
+          /* Toggle bleibt unten rechts */
+          right: 14px; bottom: 16px;
+        }
+
+        /* Panel wird zum Bottom Sheet */
+        #kaiPanel {
+          position: fixed;
+          bottom: 0; left: 0; right: 0;
+          width: 100%;
+          max-height: 75dvh;          /* dynamic viewport height */
+          border-radius: 14px 14px 0 0;
+          border-left: none; border-right: none; border-bottom: none;
+          /* Slide-up statt scale */
+          transform: translateY(100%);
+          opacity: 1;
+        }
+        #kaiPanel.open {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        /* Drag-Handle oben */
+        #kaiPanelHead::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 7px; left: 50%;
+          transform: translateX(-50%);
+          width: 36px; height: 4px;
+          border-radius: 2px;
+          background: #333;
+        }
+        #kaiPanelHead { position: relative; padding-top: 18px; }
+
+        /* Chat bekommt mehr Raum */
+        #kaiChat { max-height: 38dvh; }
+
+        /* Backdrop wenn Panel offen */
+        #kaiBackdrop {
+          display: block;
+          position: fixed; inset: 0;
+          background: rgba(0,0,0,.45);
+          backdrop-filter: blur(2px);
+          z-index: 9998;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity .2s;
+        }
+        #kaiBackdrop.visible {
+          opacity: 1;
+          pointer-events: all;
+        }
+
+        /* Input-Bereich größer für Thumbs */
+        #kaiInput  { font-size: .82rem; min-height: 38px; }
+        #kaiSendBtn { width: 38px; height: 38px; font-size: 1.1rem; }
+        #kaiInputRow { padding: 10px 12px 20px; } /* extra Platz für Home-Bar */
+
+        /* Nachrichten etwas größer */
+        .kai-msg-text { font-size: .78rem; }
+        .kai-msg-label { font-size: .62rem; }
       }
     `;
         document.head.appendChild(s);
