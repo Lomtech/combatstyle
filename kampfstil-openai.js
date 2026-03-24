@@ -503,20 +503,26 @@ Coach-Kommentar (4–5 Sätze): echte Stärke, blinder Fleck, 1 konkreter Traini
       #kaiInput {
         flex: 1; resize: none; overflow-y: hidden;
         background: #1c1c18; border: 1px solid #2a2a24; border-radius: 6px;
-        padding: 7px 9px; color: #c8c4b4; font-size: .73rem; line-height: 1.4;
-        font-family: inherit; outline: none; min-height: 32px;
+        padding: 7px 9px; color: #c8c4b4;
+        font-size: 16px;          /* ← verhindert iOS-Zoom (Safari zoomt bei <16px) */
+        line-height: 1.4;
+        font-family: inherit; outline: none; min-height: 36px;
         transition: border-color .15s;
+        -webkit-text-size-adjust: 100%;  /* iOS Safari fix */
+        touch-action: manipulation;      /* kein Double-Tap-Zoom */
       }
       #kaiInput:focus { border-color: rgba(200,168,74,.4); }
-      #kaiInput::placeholder { color: #333; }
+      #kaiInput::placeholder { color: #444; }
       #kaiSendBtn {
-        width: 32px; height: 32px; flex-shrink: 0;
+        width: 36px; height: 36px; flex-shrink: 0;
         background: #c8a84a; color: #1a1a17;
-        border: none; border-radius: 6px; font-size: 1rem;
+        border: none; border-radius: 6px; font-size: 1.1rem;
         cursor: pointer; display: flex; align-items: center; justify-content: center;
         transition: background .1s;
+        touch-action: manipulation;
       }
-      #kaiSendBtn:hover { background: #d4b860; }
+      #kaiSendBtn:hover  { background: #d4b860; }
+      #kaiSendBtn:active { background: #b89438; transform: scale(.95); }
 
       /* ── Mobile: Bottom Sheet ── */
       @media (max-width: 600px) {
@@ -574,14 +580,10 @@ Coach-Kommentar (4–5 Sätze): echte Stärke, blinder Fleck, 1 konkreter Traini
           pointer-events: all;
         }
 
-        /* Input-Bereich größer für Thumbs */
-        #kaiInput  { font-size: .82rem; min-height: 38px; }
-        #kaiSendBtn { width: 38px; height: 38px; font-size: 1.1rem; }
-        #kaiInputRow { padding: 10px 12px 20px; } /* extra Platz für Home-Bar */
-
-        /* Nachrichten etwas größer */
-        .kai-msg-text { font-size: .78rem; }
-        .kai-msg-label { font-size: .62rem; }
+        /* Input-Bereich für Thumbs + iOS Home-Bar */
+        #kaiInput   { min-height: 42px; }
+        #kaiSendBtn { width: 42px; height: 42px; }
+        #kaiInputRow { padding: 10px 12px 28px; } /* extra für Home-Bar */
       }
     `;
         document.head.appendChild(s);
