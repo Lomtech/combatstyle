@@ -455,7 +455,26 @@ function finalize() {
   const { primary, confidence, allScores } = pickPrimary(axes);
   const variant = pickVariant(axes);
   const result = { axes, sigs, primaryId: primary.id, variantId: variant?.id ?? null, confidence, allScores, timestamp: Date.now() };
-  state.finished = true; state.lastResult = result; saveState(); return result;
+  state.finished = true; state.lastResult = result; saveState();
+
+  // ── NEU: KI-Modul versorgen ──────────────────────────────────
+  window.KAMPFSTIL_RESULT = {
+    archetype: primary.name,
+    variant: variant?.name ?? null,
+    confidence: confidence,
+    finishSigs: topSigs(sigs, 3).map(([k]) => SIG_LABELS[k]?.label || k),
+    vector: {
+      TOP: axes.TOP,
+      FORCE: axes.FORCE,
+      INIT: axes.INIT,
+      RISK: axes.RISK,
+      ULO: axes.ULO,
+      TRANS: axes.TRANS,
+    }
+  };
+
+  return result;
+
 }
 
 /* ═══ RESULT CARD ════════════════════════════════════════════ */
